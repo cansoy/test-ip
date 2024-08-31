@@ -5,7 +5,7 @@ const server=express()
 const PORT =process.env.PORT || 3000
 
 server.set("etag",false)
-server.set("trust proxy",true)
+server.set("trust proxy",false)
 
 server.get("/",(req,res)=>{
     const remoteAddress =req.socket.remoteAddress
