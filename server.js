@@ -5,7 +5,11 @@ const server=express()
 const PORT =process.env.PORT || 3000
 
 server.set("etag",false)
-server.set("trust proxy",false)
+// server.set("trust proxy",false)
+server.set("trust proxy",(ip)=>{
+    console.log(ip)
+    return true
+})
 
 server.get("/",(req,res)=>{
     const remoteAddress =req.socket.remoteAddress
@@ -23,7 +27,7 @@ server.get("/",(req,res)=>{
                 <hr/>
                  ip:${ip}
                 <hr/>
-                rnd:${rnd}
+                rnd-new:${rnd}
                 <hr/>
     `
     res.send(html)
