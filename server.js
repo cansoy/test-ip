@@ -12,6 +12,7 @@ server.get("/",(req,res)=>{
     const hostname=req.hostname
     const protocol =req.protocol
     const ip =req.ip
+    const rnd =Math.floor(Math.random()*999)
     const html =`
                 <hr/>
                 remoteAddress:${remoteAddress}
@@ -21,6 +22,8 @@ server.get("/",(req,res)=>{
                 protocol:${protocol}
                 <hr/>
                  ip:${ip}
+                <hr/>
+                rnd:${rnd}
                 <hr/>
     `
     res.send(html)
